@@ -1,19 +1,72 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&family=Lobster&family=Overpass:ital@1&display=swap');
 .navbar{
-    background-color: #6f42c1;
+    background: linear-gradient(70deg, #0000ff94, #e5526cb8);
 }
-.dropdown{
-    margin-right:1rem;
+.navbar-right-menu{    
+    width: 10%;
+    justify-content: space-evenly;    
+    margin-right: -60rem;
 }
-.dropdown .btn{
+.navbar-right-menu img{
+    width:32px;
+    height:29px;
+    border-radius: 15px;
+}
+
+.navbar-log-sign{
+    /* background-color: cyan; */
+    width:14%;
+    justify-content: space-around;
+    font-size: 1.2rem;
+}
+.navbar-log-sign a{
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 1px 4px 1px 4px;
+    color: white;
+    border-bottom: 1.5px solid #0000ff94;
+    border-left: 1.5px solid #0000ff94;
+    font-family: 'Baloo Bhai 2', cursive;
+    
+}
+.active{
+    /* background-color:#8351df ; */
+    border-radius: 3px !important;
+    background: linear-gradient(70deg, #18189994, #f36780b8);
+
+    
+    
+}
+.logout-btn{
+  text-decoration: none;
+  position: absolute;
+  top: 2.4rem;
+  right: 0.5rem;
+  
+  
+}
+
+.login-user-info a{
+    background-color:#f51d44b8;
+    font-family: 'Baloo Bhai 2', cursive;
+    padding: 1px 5px 1px 5px;
+    background: linear-gradient(70deg, #07076894, #e9153cb8);
+}
+.login-user-info a:hover{
+    background-color:#f34867b8;
+}
+
+/* .dropdown .btn{
     padding: 0px 4px 0px 4px;
-}
-.dropdon-menu{
+   
+} */
+/* .dropdon-menu{
     position: absolute;
     list-style: none; 
-    background-color: #321764;
-    right:10%;    
-    box-shadow: rgba(89, 99, 240, 0.4) ;   
+    background: linear-gradient(70deg, #0000ff94, #e5526cb8);
+    right:1%;  
+    top:79%;  
+    box-shadow: rgba(89, 99, 240, 0.4);   
    
 }
 .dropdon-menu li{
@@ -24,4 +77,4 @@
  color:white;
  text-decoration: none;
  
-}
+} */

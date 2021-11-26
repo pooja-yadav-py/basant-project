@@ -1,0 +1,50 @@
+.signup-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;    
+    padding: 1.2em 2em .5em 2em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction:column;
+    box-sizing: border-box;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    
+}
+
+.signup-container input{
+    padding:.3rem;    
+    border-radius: 4px;
+    border: 1px solid gray;
+}
+.signup-container .date-of-birth label{
+    position: relative;
+    padding-top:1%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+.signup-container .date-of-birth{
+    margin-bottom: 1rem;
+    padding-top:2px ;
+}
+.signup-container input:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.signup-container input:focus{
+outline: none;
+}
+.signup-container button{
+    width: 100%;
+    margin: auto;
+    border: 1px solid gray;
+    font-size: 1.2rem;
+    background-color: #6f42c1;
+    color: white;
+    margin-bottom:10px;
+}
+.sign_up_bottom a{
+    font-size: 1.2rem;
+    margin-left: 1em;
+}
