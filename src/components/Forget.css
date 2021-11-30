@@ -1,0 +1,33 @@
+.forget-outer-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;    
+    padding: 1.2em 2em .5em 2em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction:column;
+    box-sizing: border-box;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    
+}
+.forget-inner-container{
+    
+    padding: 1rem;
+}
+.forget-inner-container label{
+    margin-right: .3rem;
+}
+.forget-details{
+    margin: .6rem 0 .6rem 0;
+}
+.forget-submit-details-btn button{
+    float: right;
+    margin-right:10%;
+    background-color: #6f42c1;
+    color: white;
+    border: 1px solid gray;
+    font-size: 1.1rem;
+}

@@ -10,6 +10,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [showError, setShowError] = useState(false);
   const [serverResponse, setServerResponse] = useState("");
+  const [wait,setWait] = useState("Login");
+
   
   
 
@@ -19,7 +21,7 @@ const Login = () => {
       setShowError(true);
       return;
     }
-    
+     setWait("processing...")
       const response = await fetch("http://localhost:3001/login", {
       // Adding method type
       method: "POST",
@@ -49,6 +51,7 @@ const Login = () => {
       })
       
     );
+    setWait("login");
     navigate('/Home');
     }
     
@@ -97,12 +100,12 @@ const Login = () => {
                 loginUser();
               }}
             >
-              Login
+              {wait}
             </button>
           </div> 
         </div>   
           <br></br>
-          <div className="d-flex justify-content-end pe-3"><Link to="">Forget Password</Link></div>
+          <div className="d-flex justify-content-end pe-3"><Link to="/forget">Forget Password</Link></div>
           
          
       </div>

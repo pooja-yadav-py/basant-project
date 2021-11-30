@@ -12,7 +12,7 @@ const Header = () => {
   const [show, setShow] = useState(false);
   const logOut = () => {
     localStorage.removeItem("user");    
-      navigate('/Login');
+      navigate('/login');
       setShow(false);    
   };
   
