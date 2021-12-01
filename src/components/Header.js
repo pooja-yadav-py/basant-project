@@ -22,10 +22,7 @@ const Header = () => {
       <nav className="navbar navbar-light">
         <div className="container-fluid">
           <span className="navbar-brand mb-0 h1 text-light">USER MANAGMENT</span>          
-          <div className="navbar-right-menu d-flex">
-          {/* {rememberMe?:null}
-          {rememberMe?<div className="userName text-light">{rememberMe.name}</div>:null} */}
-        </div> 
+           
         { !rememberMe ? (    
         <div className="navbar-log-sign d-flex"> 
           <NavLink to="/login" activeClassName="active-link">Login</NavLink>

@@ -2,19 +2,18 @@
 .navbar{
     background: linear-gradient(70deg, #0000ff94, #e5526cb8);
 }
-.navbar-right-menu{    
+/* .navbar-right-menu{    
     width: 10%;
     justify-content: space-evenly;    
     margin-right: -60rem;
-}
-.navbar-right-menu img{
+} */
+.userimg img{
     width:32px;
     height:29px;
     border-radius: 15px;
 }
 
 .navbar-log-sign{
-    /* background-color: cyan; */
     width:14%;
     justify-content: space-around;
     font-size: 1.2rem;

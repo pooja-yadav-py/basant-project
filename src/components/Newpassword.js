@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useLocation} from 'react-router-dom';
 import './Newpassword.css';
 
 const Forget = () => {
@@ -7,20 +7,39 @@ const Forget = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showError, setShowError] = useState(false);
   const [passError, setPassError] = useState(false);
+  const [wait, setWait] = useState("Submit");
+
   const navigate = useNavigate();
+  const location = useLocation();
 
-  
+  console.log(location.state.id);
 
-  const changePassword = () => {
+  const changePassword = async () => {
     if (!password || !confirmPassword) {
       setShowError(true);
-      if(password !== confirmPassword){
-        setPassError(true);
       return;
-    }
+    }else if(password != confirmPassword){
+      setPassError(true);
       return;
-    }else{
-        navigate('/login');
+    }    
+    else{
+      setWait("Processing...")
+    const response = await fetch(`http://localhost:3001/changePassword/${location.state.id}`,{
+        // Adding method type
+        method: "PATCH",
+
+         // Adding body or contents to send
+         body: JSON.stringify({
+          password:password
+        }),
+
+         // Adding headers to the request
+         headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+    });
+    setWait("submit")
+       navigate('/home');
     }
     
   };
@@ -55,7 +74,7 @@ const Forget = () => {
               changePassword();
             }}
           >
-            Submit
+            {wait}
           </button>
         </div>
       </div>

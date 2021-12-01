@@ -10,11 +10,9 @@ const Forget = () => {
   const [email, setEmail] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
   const [showError, setShowError] = useState(false);
-  const navigate = useNavigate();
-
-  let formatedDate = moment(selectedDate).format("MM-DD-YYYY");
-  console.log(formatedDate);
-  
+  const [serverResponse, setServerResponse] = useState("");
+  const [wait, setWait] = useState("Submit");
+  const navigate = useNavigate();  
 
   const forgetPassword = async () => {
       console.log(selectedDate)
@@ -22,7 +20,10 @@ const Forget = () => {
       setShowError(true);
       return;
     }else{
+      let formatedDate = moment(selectedDate).format("MM-DD-YYYY");
+
       setShowError(false);
+      setWait("Processing...")
        const response = await fetch(`http://localhost:3001/forgetpassword`, {
         // Adding method type
         method: "POST",
@@ -30,7 +31,7 @@ const Forget = () => {
        // Adding body or contents to send
        body:JSON.stringify({
         email:email,
-        selectedDate:selectedDate
+        DOB:formatedDate
        }),
 
        // Adding headers to the request
@@ -40,7 +41,23 @@ const Forget = () => {
       });
       let data = await response.json();
       
-        navigate('/newpassword');
+      if(response.status === 422){
+      setServerResponse(data.error);
+      setWait("Submit")
+      }else if(response.status === 400){
+        setServerResponse(data.error);
+        setWait("Submit")
+      }
+      else{
+        setServerResponse(data.message);
+      }
+      if(data.message==="valid 1"){
+        navigate("/newpassword", {state:{id:data._id}});
+        
+      }
+      
+      
+        
     }
    
   };
@@ -52,6 +69,10 @@ const Forget = () => {
       ) : (
         ""
       )}
+      { serverResponse.length ? (
+        <span className="text-danger">⚠️{serverResponse}</span>
+      ):""}
+
       <div className="forget-inner-container">
       <div className="forget-details">
         <label  for="email">Email:</label>
@@ -85,7 +106,7 @@ const Forget = () => {
               forgetPassword();
             }}
           >
-            Submit
+            {wait}
           </button>
         </div>
       </div>
